@@ -1,5 +1,6 @@
 package com.tobiasz.testingservlets.web.routes;
 
+import com.tobiasz.testingservlets.domain.user.UserRole;
 import com.tobiasz.testingservlets.web.RootServlet;
 import java.io.IOException;
 import javax.servlet.ServletException;

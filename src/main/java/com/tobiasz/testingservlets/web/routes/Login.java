@@ -9,9 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/login", initParams = {
-    @WebInitParam(name = "role", value = "user")
-})
+@WebServlet("/login")
 public class Login extends RootServlet {
 
     @Override

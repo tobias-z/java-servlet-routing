@@ -1,6 +1,7 @@
 package com.tobiasz.testingservlets.web.filters;
 
 import com.tobiasz.testingservlets.domain.user.UserRole;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,14 +14,14 @@ public class UserAllowedFilter {
     private final HttpServletResponse res;
 
     public UserAllowedFilter(UserRole roleAllowed, HttpServletRequest req,
-        HttpServletResponse res) {
+                             HttpServletResponse res) {
         this.roleAllowed = roleAllowed;
         this.req = req;
         this.res = res;
     }
 
     public void doFilter()
-        throws IOException, ServletException {
+            throws IOException, ServletException {
         if (roleAllowed == null) {
             return;
         }
@@ -43,7 +44,7 @@ public class UserAllowedFilter {
     private void sendError(int code, String message) throws ServletException, IOException {
         req.setAttribute("errorCode", code);
         req.setAttribute("errorMessage", message);
-        req.getRequestDispatcher("/routes/404.jsp").forward(req, res);
+        req.getRequestDispatcher("/WEB-INF/routes/404.jsp").forward(req, res);
     }
 
 }
