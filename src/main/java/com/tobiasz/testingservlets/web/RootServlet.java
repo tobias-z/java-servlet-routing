@@ -33,12 +33,12 @@ public abstract class RootServlet extends HttpServlet implements IRoute {
         String route = loader(req, resp);
         req.setAttribute("title", title);
         req.setAttribute("description", description);
-        req.setAttribute("content", "/routes" + route + ".jsp");
+        req.setAttribute("content", "/WEB-INF/routes" + route + ".jsp");
         req.setAttribute("navbarItems", new Navbar(req).getMenuItems());
         if (this.cacheControl != null) {
             resp.setHeader("cache-control", this.cacheControl);
         }
-        req.getRequestDispatcher("/root.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/root.jsp").forward(req, resp);
     }
 
     @Override

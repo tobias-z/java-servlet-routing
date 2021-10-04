@@ -26,8 +26,9 @@ public class Navbar {
         UserRole role = (UserRole) request.getSession().getAttribute("role");
         List<Item> items = getItems();
 
-        if (role != null && role.equals(UserRole.ADMIN))
+        if (role != null && role.equals(UserRole.ADMIN)) {
             return items;
+        }
 
         return items.stream()
             .filter(item -> item.getRole().equals(UserRole.USER))

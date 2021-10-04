@@ -1,6 +1,5 @@
 package com.tobiasz.testingservlets.web.filters;
 
-import com.tobiasz.testingservlets.domain.user.User;
 import com.tobiasz.testingservlets.domain.user.UserRole;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -37,11 +36,11 @@ public class UserAllowedFilter {
 
         // Do db call with username instead
         if (userRole == null || !userRole.equals(roleAllowed)) {
-            send404(401, "You are not allowed on that page");
+            sendError(401, "You are not allowed on that page");
         }
     }
 
-    private void send404(int code, String message) throws ServletException, IOException {
+    private void sendError(int code, String message) throws ServletException, IOException {
         req.setAttribute("errorCode", code);
         req.setAttribute("errorMessage", message);
         req.getRequestDispatcher("/routes/404.jsp").forward(req, res);
